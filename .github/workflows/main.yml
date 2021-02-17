@@ -1,24 +1,24 @@
 name: CI
 
-on:
+on: #määrittelee missä tilanteessa actionit suoritetaan -> nyt aina kun tulee push tai pull
   push:
     branches: [main]
   pull_request:
     branches: [main]
 
-jobs:
+jobs: #määritellään "työt" eli tehtäväsarja, nyt määritelty ainoastaa "build"
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #GhitHub varaa työn askelia varten virtuaalikoneen - tässä määtirellään millainen OS käytössä
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.6
+    steps: #yksittäine työ koostuu askeleista eli "steps"
+      - uses: actions/checkout@v2 # suorittaa actionin checkout -> "checks-out your repository under $GITHUB_WORKSAPCE, so your workflow can access it"
+      - name: Set up Python 3.6 # set-up asentaa halutun pythonin virtuaalikoneelle (löytyy marketplacesta, olisi hankalampi operaatio ilman)
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
-      - name: Install Poetry
+      - name: Install Poetry #suorittaa komentorivillä komennon, joka asentaa Poetryn
         run: pip install poetry
-      - name: Install dependencies
+      - name: Install dependencies #asentaa kaikki projektin riippuvuudet
         run: poetry install
-      - name: Run tests
+      - name: Run tests #kaikista tärkein ja suorittaa poetry:n avulla testit ja kerää testikattavuuden
         run: poetry run coverage run --branch -m pytest
