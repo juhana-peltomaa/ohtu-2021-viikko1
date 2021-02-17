@@ -1,2 +1,5 @@
 [run]
 source = src
+omit = src/tests/**,src/index.py 
+## Konfiguraatiossa määritellä pilkulla eroteltuna niin kutsuttaja glob-polkuja. 
+## Voimme jättää huomioimatta esimerkiksi yksittäisen tiedoston polun (src/index.py), tai kaikki tietyn hakemiston alla olevat polut (src/tests/**).
