@@ -7,7 +7,7 @@ class Varasto:
 
     def check_tilavuus(self, tilavuus):
         """
-        luotiin uusi metodi tarkistamaan tilavuuden posiviitisuus
+        luotiin uusi metodi tarkistamaan tilavuuden posiviitisuus, jotta pystyyn kompleksisuus vaatimuksessa
         """
         if tilavuus > 0.0:
             return tilavuus
