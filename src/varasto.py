@@ -1,10 +1,24 @@
+"""Adding the docstring to test out pylint
+- vaihtoehtoisesti voitaisiin lisätä .pylintrc:hen diasble = C0111 """
+
+
 class Varasto:
-    def __init__(self, tilavuus, alku_saldo=0):
+    """ Adding the docstring to test out pylint """
+
+    def check_tilavuus(self, tilavuus):
+        """
+        luotiin uusi metodi tarkistamaan tilavuuden posiviitisuus
+        """
         if tilavuus > 0.0:
-            self.tilavuus = tilavuus
-        else:
-            # virheellinen, nollataan
-            self.tilavuus = 0.0
+            return tilavuus
+
+        return 0.0
+
+    def __init__(self, tilavuus, alku_saldo=0):
+        """
+        Adding the docstring to test out pylint
+        """
+        self.tilavuus = self.check_tilavuus(tilavuus)
 
         if alku_saldo < 0.0:
             # virheellinen, nollataan
@@ -17,10 +31,17 @@ class Varasto:
             self.saldo = tilavuus
 
     # huom: ominaisuus voidaan myös laskea. Ei tarvita erillistä kenttää viela_tilaa tms.
+
     def paljonko_mahtuu(self):
+        """
+        Adding the docstring to test out pylint
+        """
         return self.tilavuus - self.saldo
 
     def lisaa_varastoon(self, maara):
+        """
+        Adding the docstring to test out pylint
+        """
         if maara < 0:
             return
         if maara <= self.paljonko_mahtuu():
@@ -29,6 +50,9 @@ class Varasto:
             self.saldo = self.tilavuus
 
     def ota_varastosta(self, maara):
+        """
+        Adding the docstring to test out pylint
+        """
         if maara < 0:
             return 0.0
         if maara > self.saldo:
