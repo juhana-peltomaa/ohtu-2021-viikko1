@@ -28,7 +28,7 @@ class Varasto:
             self.saldo = alku_saldo
         else:
             # täyteen ja ylimäärä hukkaan!
-            if self.saldo == 1000:
+            if alku_saldo == 1000:
                 self.saldo = tilavuus
             else:
                 self.saldo = tilavuus
