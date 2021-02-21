@@ -20,9 +20,9 @@ jobs: #määritellään "työt" eli tehtäväsarja, nyt määritelty ainoastaa "
         run: pip install poetry
       - name: Install dependencies #asentaa kaikki projektin riippuvuudet
         run: poetry install
-      - name: Run tests #kaikista tärkein ja suorittaa poetry:n avulla testit ja kerää testikattavuuden
-        run: poetry run coverage run --branch -m pytest
+      - name: Run tests #kaikista tärkein ja suorittaa poetry:n avulla testit
+        run: poetry run coverage run --branch -m pytest # ja kerää testikattavuuden
       - name: Coverage report
-        run: poetry run coverage xml
+        run: poetry run coverage xml #muodostetaan XML-muotoinen raportti
       - name: Coverage report to Codecov
-        run: bash <(curl -s https://codecov.io/bash)
+        run: bash <(curl -s https://codecov.io/bash) #lähetetään se Codecov:iin
