@@ -26,3 +26,5 @@ jobs: #määritellään "työt" eli tehtäväsarja, nyt määritelty ainoastaa "
         run: poetry run coverage xml #muodostetaan XML-muotoinen raportti
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash) #lähetetään se Codecov:iin
+      - name: Lint
+        run: poetry run pylint src
